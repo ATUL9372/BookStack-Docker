@@ -24,4 +24,5 @@ docker-compose up -d
 ## 🔑 Default Login Credentials
 
 Email : admin@admin.com
+<br>
 Password : password
