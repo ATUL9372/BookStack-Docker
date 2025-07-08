@@ -18,6 +18,8 @@ docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest 
 git clone https://github.com/ATUL9372/BookStack-Docker.git
 cd BookStack-Docker
 docker-compose up -d
+```
+
 
 ## 🔑 Default Login Credentials
 
