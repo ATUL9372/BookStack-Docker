@@ -16,5 +16,5 @@ BookStack is a free, open-source platform for creating and organizing documentat
 docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
 
 git clone https://github.com/ATUL9372/BookStack-Docker.git
-cd bookstack-docker
+cd BookStack-Docker
 docker-compose up -d
