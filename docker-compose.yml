@@ -1,0 +1,36 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    container_name: bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - APP_URL=http://localhost:6875   # Optional Enter your public domain name / ip
+
+      # App_Key : docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
+      - APP_KEY=base64:GENERATED_APP_KEY  # Optional unless you want to use your own 
+      - DB_HOST=bookstack_db  # Below docker service(container) name
+      - DB_PORT=3306
+      - DB_USERNAME=atul_user  # Enter your username
+      - DB_PASSWORD=PASSWORD # Enter your password
+      - DB_DATABASE=bookstack_db # Enter your Database name
+    volumes:
+      - ./config:/config
+    ports:
+      - 6875:80
+    restart: unless-stopped
+
+### Same Username, Password, DB_Name enter below
+  bookstack_db:
+    image: mariadb
+    container_name: bookstack_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=bookstack_db
+      - MYSQL_USER=atul_user
+      - MYSQL_PASSWORD=PASSWORD
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: unless-stopped
+
